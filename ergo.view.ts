@@ -10,44 +10,36 @@ namespace $.$$ {
 			return this.user().id()
 		}
 
-		@ $mol_mem
-		user_page_auto_open() {
-			// if (!this.user_name_defined()) this.user_page_open()
-			return true
+		user_opened() {
+			return this.$.$mol_state_arg.value('user')
 		}
 
 		thesis_new() {
 			return this.$.$mol_state_arg.value('thesis_new') === ''
 		}
 
-		thesis_arg() {
+		thesis_opened() {
 			return this.$.$mol_state_arg.value('thesis')
 		}
 
 		thesis() {
-			return this.domain().thesis( this.thesis_arg()! )
+			return this.domain().thesis( this.thesis_opened()! )
 		}
 
 		pages() {
 
+			this.domain().state().socket()
+			this.domain().index().state().sync()
+
 			return [
 				this.Index_page(),
-				... this.User_page().arg() ? [this.User_page()] : [],
+				... this.user_opened() ? [this.User_page()] : [],
 				... this.thesis_new() ? [this.Create_page()] : [],
-				... this.thesis_arg() ? [this.Thesis_page()] : [],
+				... this.thesis_opened() ? [this.Thesis_page()] : [],
 			]
 
 		}
 
-		state_holding() {
-			this.domain().index().record('qwe123qwe123qwezzxc_', ['123'])
-			this.domain().index().search('hello')
-			return this.domain().index().state()
-		}
-
-		auto() {
-			this.state_holding()
-		}
 	}
 
 }

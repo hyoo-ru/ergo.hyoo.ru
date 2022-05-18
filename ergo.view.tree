@@ -15,8 +15,6 @@ $hyoo_ergo $mol_book2
 					sub / <= Thesis_add_icon $mol_icon_plus
 		<= User_page $hyoo_ergo_person_page
 			user <= user $hyoo_ergo_person
-			name_defined => user_name_defined
-			open => user_page_open
 		<= Thesis_page $hyoo_ergo_thesis_page
 			domain <= domain
 			thesis <= thesis $hyoo_ergo_thesis

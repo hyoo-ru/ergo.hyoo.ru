@@ -4,8 +4,8 @@ namespace $ {
 
 		@ $mol_mem
 		state() {
-			console.log('state instance')
-			return new $mol_state_shared
+			const obj = new $mol_state_shared
+			return obj
 		}
 
 		@ $mol_mem_key
@@ -62,8 +62,12 @@ namespace $ {
 
 		@ $mol_mem
 		index() {
+			console.log('index instance')
 			const obj = new this.$.$hyoo_ergo_index
 			obj.domain = $mol_const(this)
+			obj.destructor = () => {
+				console.log('index descruct')
+			}
 			return obj
 		}
 

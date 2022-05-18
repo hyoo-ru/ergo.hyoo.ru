@@ -17,7 +17,7 @@ namespace $ {
 			return this.state().sub(word).list( ids ) as string[]
 		}
 
-		@ $mol_action
+		@ $mol_mem_key3
 		update(prev: string, next: string, id: string) {
 			const prev_tokens = $hyoo_ergo_index_analyze(prev)
 			const next_tokens = $hyoo_ergo_index_analyze(next)
@@ -34,11 +34,9 @@ namespace $ {
 			}
 		}
 
-		@ $mol_action
+		@ $mol_mem_key
 		search(text: string) {
-			console.log('search text')
 			const tokens = $hyoo_ergo_index_analyze(text)
-			console.log({ tokens })
 			const ids = []
 
 			for ( const token of tokens ) {
