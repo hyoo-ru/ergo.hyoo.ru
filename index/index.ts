@@ -11,9 +11,10 @@ namespace $ {
 			return this.domain().state().doc('hyoo_ergo_index')
 		}
 
+		@ $mol_mem_key
 		record(word: string, ids?: string[]) {
 			if (ids) console.log(word, JSON.stringify(ids))
-			return this.state().doc(word).list( ids ) as string[]
+			return this.state().sub(word).list( ids ) as string[]
 		}
 
 		@ $mol_action
@@ -33,9 +34,11 @@ namespace $ {
 			}
 		}
 
-		@ $mol_mem
+		@ $mol_action
 		search(text: string) {
+			console.log('search text')
 			const tokens = $hyoo_ergo_index_analyze(text)
+			console.log({ tokens })
 			const ids = []
 
 			for ( const token of tokens ) {

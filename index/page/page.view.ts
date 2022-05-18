@@ -2,6 +2,7 @@ namespace $.$$ {
 
 	export class $hyoo_ergo_index_page extends $.$hyoo_ergo_index_page {
 
+		@ $mol_mem
 		search_results() {
 			if (!this.search()) return []
 

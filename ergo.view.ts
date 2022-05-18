@@ -20,9 +20,12 @@ namespace $.$$ {
 			return this.$.$mol_state_arg.value('thesis_new') === ''
 		}
 
+		thesis_arg() {
+			return this.$.$mol_state_arg.value('thesis')
+		}
+
 		thesis() {
-			const id = this.$.$mol_state_arg.value('thesis')
-			return id ? this.domain().thesis(id) : null
+			return this.domain().thesis( this.thesis_arg()! )
 		}
 
 		pages() {
@@ -31,13 +34,19 @@ namespace $.$$ {
 				this.Index_page(),
 				... this.User_page().arg() ? [this.User_page()] : [],
 				... this.thesis_new() ? [this.Create_page()] : [],
-				... this.thesis() ? [this.Thesis_page()] : [],
+				... this.thesis_arg() ? [this.Thesis_page()] : [],
 			]
 
 		}
 
+		state_holding() {
+			this.domain().index().record('qwe123qwe123qwezzxc_', ['123'])
+			this.domain().index().search('hello')
+			return this.domain().index().state()
+		}
+
 		auto() {
-			this.user_page_auto_open()
+			this.state_holding()
 		}
 	}
 

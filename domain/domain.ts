@@ -4,6 +4,7 @@ namespace $ {
 
 		@ $mol_mem
 		state() {
+			console.log('state instance')
 			return new $mol_state_shared
 		}
 

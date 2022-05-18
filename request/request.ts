@@ -43,5 +43,10 @@ namespace $ {
 			const type = this.state().sub('type').value(next) ?? 'change'
 			return (type as typeof next)!
 		}
+
+		@ $mol_action
+		create() {
+
+		}
 	}
 }
