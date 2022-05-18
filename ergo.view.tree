@@ -1,3 +1,7 @@
 $hyoo_ergo $mol_page
 	domain $hyoo_ergo_domain
-	body / \123
+	body /
+		<= Count $mol_view sub / <= count NaN
+		<= Render $mol_button_major
+			title \Render
+			click?val <=> rerender?val null
