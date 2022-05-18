@@ -6,6 +6,10 @@ namespace $.$$ {
 			return this.edition_last_content().split('\n')[0].trim()
 		}
 
+		thesis_id() {
+			return this.thesis().id()
+		}
+
 		edition_last_content() {
 			const edition = this.thesis().edition()
 			if (!edition) return super.edition_last_content()

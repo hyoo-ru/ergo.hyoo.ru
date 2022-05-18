@@ -13,7 +13,6 @@ namespace $ {
 
 		@ $mol_mem_key
 		record(word: string, ids?: string[]) {
-			if (ids) console.log(word, JSON.stringify(ids))
 			return this.state().sub(word).list( ids ) as string[]
 		}
 

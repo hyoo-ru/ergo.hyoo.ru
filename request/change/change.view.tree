@@ -1,5 +1,11 @@
 $hyoo_ergo_request_change $mol_page
+	thesis $hyoo_ergo_thesis
+	domain $hyoo_ergo_domain
 	title @ \Change request
+	tools /
+		<= Close $mol_link
+			arg * change null
+			sub / <= Close_icon $mol_icon_cross
 	body /
 		<= Content $mol_textarea
 			hint @ \Content

@@ -51,6 +51,10 @@ namespace $.$$ {
 			return this.domain().state().doc( 'hyoo_ergo_thesis' ).doc( this.id() )
 		}
 
+		draft(next?: boolean) {
+			return this.state().sub('draft').value(next) ?? true
+		}
+
 		moment(next?: $mol_time_moment) {
 			const str = this.state().sub('moment').value( next && next.toString() )
 			return str ? new $mol_time_moment( String(str) ) : null
@@ -64,6 +68,11 @@ namespace $.$$ {
 		edition(next?: $hyoo_ergo_edition) {
 			const id = this.state().sub('edition').value(next && next.id())
 			return id ? this.domain().edition( String(id) ) : null
+		}
+
+		requests(next?: $hyoo_ergo_request[]) {
+			const ids = this.state().sub('requests').list(next && next.map( obj => obj.id() ))
+			return ids.map( id => this.domain().request( String(id) ) )
 		}
 
 	}

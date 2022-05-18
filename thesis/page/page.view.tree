@@ -8,4 +8,8 @@ $hyoo_ergo_thesis_page $mol_page
 			sub / <= Close_icon $mol_icon_cross
 	body /
 		<= Edition_last $mol_text
-			text <= edition_last_content \4 + 0 + 4 == 404
+			text <= edition_last_content \'4' + '0' + '4' == 404
+	foot /
+		<= Change $mol_link
+			arg * change <= thesis_id \
+			title @ \Change
