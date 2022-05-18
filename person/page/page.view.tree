@@ -1,0 +1,17 @@
+$hyoo_ergo_person_page $mol_page
+	user $hyoo_ergo_person
+	title @ \User settings
+	tools <= page_tools /
+		<= Close $mol_link
+			hint @ \Close page
+			arg * user null
+			sub / <= Close_icon $mol_icon_cross
+	body /
+		<= Form $mol_form
+			form_fields /
+				<= Name $mol_form_field
+					name @ \Username
+					control <= Name_control $mol_string
+						hint @ \mr. Anderson
+						value?val <=> name?val \
+					

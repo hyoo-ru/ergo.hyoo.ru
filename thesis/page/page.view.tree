@@ -1,0 +1,11 @@
+$hyoo_ergo_thesis_page $mol_page
+	domain $hyoo_ergo_domain
+	thesis $hyoo_ergo_thesis
+	title <= thesis_title \
+	tools /
+		<= Close $mol_link
+			arg * thesis null
+			sub / <= Close_icon $mol_icon_cross
+	body /
+		<= Edition_last $mol_text
+			text <= edition_last_content \4 + 0 + 4 == 404

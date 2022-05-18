@@ -1,0 +1,14 @@
+$hyoo_ergo_index_page $mol_page
+	domain $hyoo_ergo_domain
+	title @ \Index
+	body /
+		<= Form $mol_form
+			form_fields /
+				<= Search $mol_string
+					hint @ \Search thesises
+					value?val <=> search?val \
+		<= Search_result $mol_list
+			rows <= links / 
+	Thesis_link!id $mol_link
+		arg * thesis <= thesis_link!id \
+		title <= thesis_link_title!id \

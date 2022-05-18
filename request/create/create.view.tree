@@ -1,0 +1,11 @@
+$hyoo_ergo_request_create $mol_page
+	domain $hyoo_ergo_domain
+	title <= page_title @ \New thesis
+	body /
+		<= Content $mol_textarea
+			hint @ \Content
+			value?val <=> content?val \
+	foot /
+		<= Publish $mol_button_major
+			title @ \Publish
+			click?val <=> publish?val null
