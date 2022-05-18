@@ -1,25 +1,3 @@
-$hyoo_ergo $mol_book2
+$hyoo_ergo $mol_page
 	domain $hyoo_ergo_domain
-	title @ \Ergo
-	pages /
-		<= Index_page $hyoo_ergo_index_page
-			domain <= domain
-			tools /
-				<= User_settings $mol_link
-					hint @ \User
-					arg * user <= user_id \
-					sub / <= User_settings_icon $mol_icon_account_settings
-				<= Thesis_add $mol_link
-					hint @ \New Thesis
-					arg * thesis_new \
-					sub / <= Thesis_add_icon $mol_icon_plus
-		<= User_page $hyoo_ergo_person_page
-			user <= user $hyoo_ergo_person
-			name_defined => user_name_defined
-			open => user_page_open
-		<= Thesis_page $hyoo_ergo_thesis_page
-			domain <= domain
-			thesis <= thesis $hyoo_ergo_thesis
-		<= Change_page $hyoo_ergo_request_change
-		<= Create_page $hyoo_ergo_request_create
-			domain <= domain
+	body / \123
