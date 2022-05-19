@@ -1,0 +1,24 @@
+$hyoo_ergo_request_page $mol_page
+	request $hyoo_ergo_request
+	domain $hyoo_ergo_domain
+	title @ \Request to edit
+	tools /
+		<= Close $mol_link
+			arg * request null
+			sub / <= Close_icon $mol_icon_cross
+	body /
+		<= Type $mol_deck items /
+			<= Change $mol_view
+				title @ \Change
+				sub /
+					<= Change_text $mol_textarea
+						value? <=> change_text? \
+			<= Split $mol_view
+				title @ \Split
+				sub / \Split request
+			<= Join $mol_view
+				title @ \Join
+				sub / \Join request
+	Split_text* $mol_textarea
+		hint @ \Type
+		value? <=> split_text*? \

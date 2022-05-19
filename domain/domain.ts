@@ -16,26 +16,23 @@ namespace $ {
 			return obj
 		}
 
-		@ $mol_mem_key
-		thesis(id: string) {
-			const obj = new this.$.$hyoo_ergo_thesis
-			obj.id = $mol_const(id)
+		@ $mol_mem
+		thesis() {
+			const obj = new this.$.$hyoo_ergo_thesis_service
 			obj.domain = $mol_const(this)
 			return obj
 		}
 
-		@ $mol_mem_key
-		request(id: string) {
-			const obj = new this.$.$hyoo_ergo_request
-			obj.id = $mol_const(id)
+		@ $mol_mem
+		request() {
+			const obj = new this.$.$hyoo_ergo_request_service
 			obj.domain = $mol_const(this)
 			return obj
 		}
 
-		@ $mol_mem_key
-		edition(id: string) {
-			const obj = new this.$.$hyoo_ergo_edition
-			obj.id = $mol_const(id)
+		@ $mol_mem
+		edition() {
+			const obj = new this.$.$hyoo_ergo_edition_service
 			obj.domain = $mol_const(this)
 			return obj
 		}

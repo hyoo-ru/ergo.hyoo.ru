@@ -1,15 +1,23 @@
 $hyoo_ergo_thesis_page $mol_page
 	domain $hyoo_ergo_domain
 	thesis $hyoo_ergo_thesis
-	title <= thesis_title \
+	title @ \Thesis
 	tools /
+		<= Request_create $mol_button_minor
+			hint @ \Create edit request
+			click?val <=> request_create?val null
+			sub / <= request_create_icon $mol_icon_pencil
 		<= Close $mol_link
 			arg * thesis null
 			sub / <= Close_icon $mol_icon_cross
 	body /
-		<= Edition_last $mol_text
-			text <= edition_last_content \'4' + '0' + '4' == 404
-	foot /
-		<= Change $mol_link
-			arg * change <= thesis_id \
-			title @ \Change
+		<= Tabs $mol_deck items /
+			<= Text $mol_text
+				title @ \Text
+				text <= text \
+			<= Requests $mol_list
+				title @ \Requests
+				rows <= requests /
+	Request* $mol_link
+		arg * request <= request_id* \
+		title <= request_message* \

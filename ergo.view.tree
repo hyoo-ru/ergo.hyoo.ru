@@ -5,14 +5,17 @@ $hyoo_ergo $mol_book2
 		<= Index_page $hyoo_ergo_index_page
 			domain <= domain
 			tools /
+				<= Thesis_add $mol_link
+					hint @ \New Thesis
+					arg * thesis_new \
+					sub / <= Thesis_add_icon $mol_icon_plus
 				<= User_settings $mol_link
 					hint @ \User
 					arg * user <= user_id \
 					sub / <= User_settings_icon $mol_icon_account_settings
-				<= Thesis_add $mol_link
-					hint @ \New Thesis
-					arg * thesis_new <= thesis_new_id \
-					sub / <= Thesis_add_icon $mol_icon_plus
+				<= Source $mol_link_source
+					uri \https://github.com/hyoo-ru/ergo.hyoo.ru
+				<= Lights $mol_lights_toggle
 		<= User_page $hyoo_ergo_person_page
 			user <= user $hyoo_ergo_person
 		<= Thesis_page $hyoo_ergo_thesis_page
@@ -20,7 +23,6 @@ $hyoo_ergo $mol_book2
 			thesis <= thesis $hyoo_ergo_thesis
 		<= Thesis_create_page $hyoo_ergo_thesis_create
 			domain <= domain
-			thesis <= thesis_new $hyoo_ergo_thesis
-		<= Change_page $hyoo_ergo_request_change
+		<= Request_page $hyoo_ergo_request_page
 			domain <= domain
-			thesis <= thesis_change $hyoo_ergo_thesis
+			request <= request $hyoo_ergo_request

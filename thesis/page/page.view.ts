@@ -2,18 +2,26 @@ namespace $.$$ {
 
 	export class $hyoo_ergo_thesis_page extends $.$hyoo_ergo_thesis_page {
 
-		thesis_title() {
-			return this.edition_last_content().split('\n')[0].trim()
+		text() {
+			return this.thesis().edition().text()
 		}
 
-		thesis_id() {
-			return this.thesis().id()
+
+		request_id(id: string) {
+			return id
 		}
 
-		edition_last_content() {
-			const edition = this.thesis().edition()
-			if (!edition) return super.edition_last_content()
-			return edition.content() || '...'
+		request_title(id: string) {
+			return this.domain().request().item(id).message()
+		}
+
+		requests() {
+			return this.thesis().requests().map( obj => this.Request( obj.id() ) )
+		}
+
+		request_create() {
+			// const request = this.domain().request().create(this.thesis())
+			// this.$.$mol_state_arg.value('request', request.id())
 		}
 
 	}

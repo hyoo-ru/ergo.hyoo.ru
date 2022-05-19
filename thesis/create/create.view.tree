@@ -1,12 +1,14 @@
 $hyoo_ergo_thesis_create $mol_page
 	domain $hyoo_ergo_domain
-	thesis $hyoo_ergo_thesis
-	title <= page_title @ \New
+	title <= page_title @ \New Thesis
+	tools /
+		<= Publish $mol_button_minor
+			title @ \Publish
+			click?val <=> publish?val null
+		<= Close $mol_link
+			arg * thesis_new null
+			sub / <= Close_icon $mol_icon_cross
 	body /
-		<= Content $mol_textarea
-			hint @ \Type thesis text
-			value?val <=> content?val \
-	foot /
-		<= Publish $mol_button_major
-			title @ \Save
-			click?val <=> save?val null
+		<= Text $mol_textarea
+			hint @ \Type here
+			value?val <=> text?val \
