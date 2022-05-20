@@ -1,0 +1,4 @@
+$hyoo_ergo_request_create $mol_page
+	domain $hyoo_ergo_request_create
+	title @ \New request
+	body / \123

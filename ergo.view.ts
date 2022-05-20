@@ -28,13 +28,8 @@ namespace $.$$ {
 		}
 
 
-		request_opened() {
-			return this.$.$mol_state_arg.value('request')
-		}
-
-		request() {
-			const obj = this.domain().request().item( this.request_opened()! )
-			return obj
+		request_new_opened() {
+			return this.$.$mol_state_arg.value('request_new') === ''
 		}
 
 
@@ -48,7 +43,7 @@ namespace $.$$ {
 				... this.user_opened() ? [this.User_page()] : [],
 				... this.thesis_new_opened() ? [this.Thesis_create_page()] : [],
 				... this.thesis_opened() ? [this.Thesis_page()] : [],
-				... this.request_opened() ? [this.Request_page()] : [],
+				... this.request_new_opened() ? [this.Request_create_page()] : [],
 			]
 
 		}

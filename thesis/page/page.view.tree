@@ -3,10 +3,10 @@ $hyoo_ergo_thesis_page $mol_page
 	thesis $hyoo_ergo_thesis
 	title @ \Thesis
 	tools /
-		<= Request_create $mol_button_minor
-			hint @ \Create edit request
-			click?val <=> request_create?val null
-			sub / <= request_create_icon $mol_icon_pencil
+		<= Request_add $mol_link
+			hint @ \Add edit request
+			arg * request_new \
+			sub / <= request_add_icon $mol_icon_pencil
 		<= Close $mol_link
 			arg * thesis null
 			sub / <= Close_icon $mol_icon_cross

@@ -11,7 +11,7 @@ namespace $.$$ {
 			return id
 		}
 
-		request_title(id: string) {
+		request_message(id: string) {
 			return this.domain().request().item(id).message()
 		}
 

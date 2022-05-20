@@ -2,7 +2,7 @@ $hyoo_ergo_thesis_create $mol_page
 	domain $hyoo_ergo_domain
 	title <= page_title @ \New Thesis
 	tools /
-		<= Publish $mol_button_minor
+		<= Publish $mol_button_major
 			title @ \Publish
 			click?val <=> publish?val null
 		<= Close $mol_link
