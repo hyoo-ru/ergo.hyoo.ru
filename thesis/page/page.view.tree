@@ -3,21 +3,12 @@ $hyoo_ergo_thesis_page $mol_page
 	thesis $hyoo_ergo_thesis
 	title @ \Thesis
 	tools /
-		<= Request_add $mol_link
+		<= Edit $mol_link
 			hint @ \Edit
-			arg * request_new <= thesis_id \
-			sub / <= request_add_icon $mol_icon_pencil
+			sub / <= Edit_icon $mol_icon_pencil
 		<= Close $mol_link
 			arg * thesis null
 			sub / <= Close_icon $mol_icon_cross
 	body /
-		<= Tabs $mol_deck items /
-			<= Text $mol_text
-				title @ \Text
-				text <= text \
-			<= Requests $mol_list
-				title @ \Requests
-				rows <= requests /
-	Request* $mol_link
-		arg * request <= request_id* \
-		title <= request_message* \
+		<= Text $mol_text
+			text <= text \

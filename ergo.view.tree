@@ -23,9 +23,3 @@ $hyoo_ergo $mol_book2
 			thesis <= thesis $hyoo_ergo_thesis
 		<= Thesis_create_page $hyoo_ergo_thesis_create
 			domain <= domain
-		<= Request_page $hyoo_ergo_request_page
-			domain <= domain
-			request <= request $hyoo_ergo_request
-		<= Request_create_page $hyoo_ergo_request_create
-			domain <= domain
-			thesis <= request_thesis $hyoo_ergo_thesis

@@ -24,13 +24,6 @@ namespace $ {
 		}
 
 		@ $mol_mem
-		request() {
-			const obj = new this.$.$hyoo_ergo_request_service
-			obj.domain = $mol_const(this)
-			return obj
-		}
-
-		@ $mol_mem
 		edition() {
 			const obj = new this.$.$hyoo_ergo_edition_service
 			obj.domain = $mol_const(this)

@@ -47,12 +47,6 @@ namespace $ {
 			return this.state().sub('text').text(next) ?? ''
 		}
 
-		request(next?: $hyoo_ergo_request) {
-			const id = this.state().sub('request').value(next && next.id())
-			if (!id) throw new Error('Request is required')
-			return this.domain().request().item( String(id) )
-		}
-
 		parents(next?: $hyoo_ergo_edition[]) {
 			const ids = this.state().sub('parents').list( next && next.map(obj => obj.id()) )
 			return ids.map( id => this.domain().edition().item( String(id) ) )

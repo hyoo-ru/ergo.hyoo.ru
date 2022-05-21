@@ -18,18 +18,10 @@ namespace $ {
 		create(text: string) {
 			const thesis = this.item( $mol_guid() )
 			const edition = this.domain().edition().create(text)
-			const request = this.domain().request().create('create', 'accepted')
-
-			request.edition(edition)
-			request.thesis(thesis)
-			request.message('🔥')
-
-			edition.request(request)
 
 			thesis.moment(new $mol_time_moment)
 			thesis.creator(this.domain().user())
 			thesis.edition(edition)
-			thesis.requests([request])
 
 			this.domain().index().update('', text, thesis.id())
 
@@ -69,11 +61,6 @@ namespace $ {
 			const id = this.state().sub('edition').value(next && next.id())
 			if (!id) throw new Error('Edition is required')
 			return this.domain().edition().item( String(id) )
-		}
-
-		requests(next?: $hyoo_ergo_request[]) {
-			const ids = this.state().sub('requests').list(next && next.map( obj => obj.id() ))
-			return ids.map( id => this.domain().request().item( String(id) ) )
 		}
 
 	}
