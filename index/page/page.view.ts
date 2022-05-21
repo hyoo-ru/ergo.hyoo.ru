@@ -19,7 +19,7 @@ namespace $.$$ {
 		}
 
 		thesis_link_title(id: string) {
-			return this.domain().thesis().item(id).edition().text().replace(/\n/g, ' ')
+			return this.domain().thesis().item(id).edition().title()
 		}
 
 	}

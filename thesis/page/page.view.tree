@@ -1,14 +1,16 @@
 $hyoo_ergo_thesis_page $mol_page
 	domain $hyoo_ergo_domain
 	thesis $hyoo_ergo_thesis
-	title @ \Thesis
+	title <= thesis_title \
 	tools /
-		<= Edit $mol_link
-			hint @ \Edit
-			sub / <= Edit_icon $mol_icon_pencil
+		<= Proposals $mol_link
+			hint @ \Open proposals
+			arg * proposals <= thesis_id \
+			sub / <= Proposals_icon $mol_icon_comment_multiple
 		<= Close $mol_link
+			hint @ \Close page
 			arg * thesis null
 			sub / <= Close_icon $mol_icon_cross
 	body /
 		<= Text $mol_text
-			text <= text \
+			text <= thesis_text \

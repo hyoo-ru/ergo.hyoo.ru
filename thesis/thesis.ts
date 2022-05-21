@@ -15,19 +15,27 @@ namespace $ {
 		}
 
 		@ $mol_action
-		create(text: string) {
+		create(text: string, title: string) {
 			const thesis = this.item( $mol_guid() )
-			const edition = this.domain().edition().create(text)
+			const edition = this.domain().edition().create(text, title)
 
 			thesis.moment(new $mol_time_moment)
 			thesis.creator(this.domain().user())
 			thesis.edition(edition)
 
-			this.domain().index().update('', text, thesis.id())
+			this.domain().index().update('', `${title} ${text}`, thesis.id())
 
 			return thesis
 		}
 
+		@ $mol_action
+		edit_text(text: string) {
+
+		}
+
+		split() {}
+
+		merge() {}
 	}
 
 	export class $hyoo_ergo_thesis extends $mol_object2 {
@@ -61,6 +69,11 @@ namespace $ {
 			const id = this.state().sub('edition').value(next && next.id())
 			if (!id) throw new Error('Edition is required')
 			return this.domain().edition().item( String(id) )
+		}
+
+		proposals(next?: $hyoo_ergo_proposal[]) {
+			const ids = this.state().sub('proposals').list(next && next.map( obj => obj.id() ))
+			return ids.map(id => this.domain().proposal(String(id)))
 		}
 
 	}

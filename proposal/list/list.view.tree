@@ -1,0 +1,31 @@
+$hyoo_ergo_proposal_list $mol_page
+	domain $hyoo_ergo_domain
+	thesis $hyoo_ergo_thesis
+	title @ \Proposals
+	tools /
+		<= Thesis $mol_link
+			hint @ \Open Thesis
+			arg * thesis <= thesis_id \
+			sub / <= Thesis_icon $mol_icon_note
+		<= Add $mol_link
+			hint @ \New Proposal
+			arg * proposal_new <= thesis_id \
+			sub / <= Add_icon $mol_icon_plus
+		<= Close $mol_link
+			hint @ \Close page
+			arg * proposals null
+			sub / <= Close_icon $mol_icon_cross
+	body <= page_body /
+		<= Empty $mol_paragraph
+			title @ \No one created
+		<= List $mol_list
+			rows <= rows /
+	Proposal* $mol_list
+		rows /
+			<= Header* $mol_row
+				sub /
+					<= Moment* $mol_view sub / <= proposal_moment* \
+					<= Creator* $mol_link
+						arg * person <= proposal_creator_id* \
+						title <= proposal_creator_name* \
+			<= Reason* $mol_row sub / <= proposal_reason* \

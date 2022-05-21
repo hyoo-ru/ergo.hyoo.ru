@@ -1,0 +1,32 @@
+$hyoo_ergo_proposal_new $mol_page
+	domain $hyoo_ergo_domain
+	thesis $hyoo_ergo_thesis
+	title @ \New Proposal
+	tools /
+		<= Thesis $mol_link
+			hint @ \Open Thesis
+			arg * thesis <= thesis_id \
+			sub / <= Thesis_icon $mol_icon_note
+		<= Publish $mol_button_minor
+			hint @ \Publish Proposal
+			sub / <= Publish_icon $mol_icon_send
+			enabled <= publish_enabled true
+			click? <=> publish? null
+		<= Close $mol_link
+			hint @ \Close page
+			arg * proposal_new null
+			sub / <= Close_icon $mol_icon_cross
+	body /
+		<= Form $mol_form
+			form_fields /
+				<= What_field $mol_form_field
+					name @ \What to change?
+					control <= What $mol_textarea
+						hint @ \Type here
+						value? <=> what? \
+				<= Reason_field $mol_form_field
+					name @ \Reason for change
+					control <= Reason $mol_textarea
+						hint @ \Type here
+						value? <=> reason? \
+

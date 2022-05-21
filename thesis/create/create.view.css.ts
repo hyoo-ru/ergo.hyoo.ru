@@ -8,7 +8,13 @@ namespace $.$$ {
 			grow: 0,
 			shrink: 1,
 			basis: rem(25),
-		}
+		},
+
+		Tools: {
+			flex: {
+				grow: 0,
+			},
+		},
 
 	})
 

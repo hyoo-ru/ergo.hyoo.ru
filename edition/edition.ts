@@ -15,9 +15,10 @@ namespace $ {
 		}
 
 		@ $mol_action
-		create(text: string) {
+		create(text: string, title: string) {
 			const edition = this.item( $mol_guid() )
 			edition.text(text)
+			edition.title(title)
 			return edition
 		}
 
@@ -43,8 +44,12 @@ namespace $ {
 			return this.domain().state().doc( 'hyoo_ergo_edition' ).doc( this.id() )
 		}
 
+		title(next?: string) {
+			return this.state().sub('title').text(next)
+		}
+
 		text(next?: string) {
-			return this.state().sub('text').text(next) ?? ''
+			return this.state().sub('text').text(next)
 		}
 
 		parents(next?: $hyoo_ergo_edition[]) {

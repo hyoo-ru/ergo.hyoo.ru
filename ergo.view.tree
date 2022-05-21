@@ -23,3 +23,9 @@ $hyoo_ergo $mol_book2
 			thesis <= thesis $hyoo_ergo_thesis
 		<= Thesis_create_page $hyoo_ergo_thesis_create
 			domain <= domain
+		<= Proposal_list_page $hyoo_ergo_proposal_list
+			domain <= domain
+			thesis <= proposal_list_thesis $hyoo_ergo_thesis
+		<= Proposal_new_page $hyoo_ergo_proposal_new
+			domain <= domain
+			thesis <= proposal_new_thesis $hyoo_ergo_thesis

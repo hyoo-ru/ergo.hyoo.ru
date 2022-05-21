@@ -28,6 +28,23 @@ namespace $.$$ {
 		}
 
 
+		proposal_list_opened() {
+			return this.$.$mol_state_arg.value('proposals')
+		}
+
+		proposal_list_thesis() {
+			return this.domain().thesis().item( this.proposal_list_opened()! )
+		}
+
+		proposal_new_opened() {
+			return this.$.$mol_state_arg.value('proposal_new')
+		}
+
+		proposal_new_thesis() {
+			return this.domain().thesis().item( this.proposal_new_opened()! )
+		}
+
+
 		pages() {
 
 			this.domain().state().socket()
@@ -36,8 +53,10 @@ namespace $.$$ {
 			return [
 				this.Index_page(),
 				... this.user_opened() ? [this.User_page()] : [],
-				... this.thesis_opened() ? [this.Thesis_page()] : [],
 				... this.thesis_new_opened() ? [this.Thesis_create_page()] : [],
+				... this.thesis_opened() ? [this.Thesis_page()] : [],
+				... this.proposal_list_opened() ? [this.Proposal_list_page()] : [],
+				... this.proposal_new_opened() ? [this.Proposal_new_page()] : [],
 			]
 
 		}
