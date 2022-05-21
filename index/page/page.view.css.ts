@@ -14,10 +14,6 @@ namespace $.$$ {
 			},
 		},
 
-		flex: {
-			basis: rem(20),
-		}
-
 	} )
 
 }

@@ -1,6 +1,8 @@
 $hyoo_ergo $mol_book2
 	domain $hyoo_ergo_domain
 	title @ \Ergo
+	plugins /
+		<= Theme $mol_theme_auto
 	pages /
 		<= Index_page $hyoo_ergo_index_page
 			domain <= domain
@@ -21,7 +23,7 @@ $hyoo_ergo $mol_book2
 		<= Thesis_page $hyoo_ergo_thesis_page
 			domain <= domain
 			thesis <= thesis $hyoo_ergo_thesis
-		<= Thesis_create_page $hyoo_ergo_thesis_create
+		<= Thesis_new_page $hyoo_ergo_thesis_create
 			domain <= domain
 		<= Proposal_list_page $hyoo_ergo_proposal_list
 			domain <= domain
@@ -29,3 +31,6 @@ $hyoo_ergo $mol_book2
 		<= Proposal_new_page $hyoo_ergo_proposal_new
 			domain <= domain
 			thesis <= proposal_new_thesis $hyoo_ergo_thesis
+		<= Thesis_edit_page $hyoo_ergo_thesis_edit
+			domain <= domain
+			proposal <= proposal_thesis_edit $hyoo_ergo_proposal

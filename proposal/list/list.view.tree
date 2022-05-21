@@ -22,10 +22,15 @@ $hyoo_ergo_proposal_list $mol_page
 			rows <= rows /
 	Proposal* $mol_list
 		rows /
-			<= Header* $mol_row
-				sub /
-					<= Moment* $mol_view sub / <= proposal_moment* \
-					<= Creator* $mol_link
-						arg * person <= proposal_creator_id* \
-						title <= proposal_creator_name* \
+			<= Header* $mol_row sub /
+				<= Moment* $mol_view sub / <= proposal_moment* \
+				<= Creator* $mol_link
+					arg * user <= proposal_creator_id* \
+					title <= proposal_creator_name* \
+				<= Accept* $mol_link
+					arg * thesis_edit <= proposal_id* \
+					sub / <= Accept_icon* $mol_icon_check_outline
+				<= Cnacel* $mol_link
+					arg * proposal_close <= proposal_id* \
+					sub / <= Cancel_icon* $mol_icon_close_outline
 			<= Reason* $mol_row sub / <= proposal_reason* \

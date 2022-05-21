@@ -1,6 +1,6 @@
 namespace $ {
 
-	export type $hyoo_ergo_proposal_status = 'opened' | 'completed' | 'canceled'
+	export type $hyoo_ergo_proposal_status = 'opened' | 'completed' | 'closed'
 
 	export class $hyoo_ergo_proposal extends $mol_object2 {
 

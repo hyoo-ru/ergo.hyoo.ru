@@ -4,10 +4,6 @@ namespace $.$$ {
 
 	$mol_style_define( $hyoo_ergo_proposal_new , {
 
-		flex: {
-			basis: rem(20),
-		},
-
 	} )
 
 }
