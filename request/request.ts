@@ -29,6 +29,20 @@ namespace $ {
 			return request
 		}
 
+		@ $mol_action
+		publish_change(thesis: $hyoo_ergo_thesis, text: string, message: string) {
+			const edition = this.domain().edition().create(text)
+			const request = this.create('change', 'review')
+
+			edition.request(request)
+			request.edition(edition)
+			request.message(message)
+
+			thesis.requests( [...thesis.requests(), request] )
+
+			return request
+		}
+
 	}
 
 	export class $hyoo_ergo_request extends $mol_object2 {
@@ -87,23 +101,6 @@ namespace $ {
 		type(next?: $hyoo_ergo_request_type) {
 			const type = this.state().sub('type').value(next) ?? 'change'
 			return (type as typeof next)!
-		}
-
-		changed_content(next?: string) {
-			return this.state().sub('changed_content').text(next)
-		}
-
-		splitted_content(next?: string[]) {
-			return this.state().sub('splitted_content').list(next).map( str => String(str) )
-		}
-
-		joined_content(next?: string[]) {
-			return this.state().sub('joined_content').list(next).map( str => String(str) )
-		}
-
-		joined_thesises(next?: $hyoo_ergo_thesis[]) {
-			const ids = this.state().sub('joined_thesises').list(next && next.map( obj => obj.id() ))
-			return ids.map( id => this.domain().thesis().item( String(id) ) )
 		}
 
 	}

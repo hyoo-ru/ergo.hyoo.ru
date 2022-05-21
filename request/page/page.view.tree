@@ -1,24 +1,23 @@
 $hyoo_ergo_request_page $mol_page
 	request $hyoo_ergo_request
 	domain $hyoo_ergo_domain
-	title @ \Request to edit
+	title @ \Request
 	tools /
 		<= Close $mol_link
 			arg * request null
 			sub / <= Close_icon $mol_icon_cross
 	body /
-		<= Type $mol_deck items /
-			<= Change $mol_view
-				title @ \Change
-				sub /
-					<= Change_text $mol_textarea
-						value? <=> change_text? \
-			<= Split $mol_view
-				title @ \Split
-				sub / \Split request
-			<= Join $mol_view
-				title @ \Join
-				sub / \Join request
-	Split_text* $mol_textarea
-		hint @ \Type
-		value? <=> split_text*? \
+		<= Text_label $mol_labeler
+			title @ \New thesis text
+			Content <= Text $mol_textarea
+				value? <=> text_changed? \
+		<= Message $mol_labeler
+			title @ \Message
+			content / <= message \
+		<= Creator $mol_labeler
+			title @ \Creator
+			content / <= creator_name \
+		<= Moment $mol_labeler
+			title @ \Moment
+			content / <= moment \
+

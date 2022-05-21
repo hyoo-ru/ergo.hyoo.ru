@@ -6,6 +6,9 @@ namespace $.$$ {
 			return this.thesis().edition().text()
 		}
 
+		thesis_id() {
+			return this.thesis().id()
+		}
 
 		request_id(id: string) {
 			return id
@@ -17,11 +20,6 @@ namespace $.$$ {
 
 		requests() {
 			return this.thesis().requests().map( obj => this.Request( obj.id() ) )
-		}
-
-		request_create() {
-			// const request = this.domain().request().create(this.thesis())
-			// this.$.$mol_state_arg.value('request', request.id())
 		}
 
 	}

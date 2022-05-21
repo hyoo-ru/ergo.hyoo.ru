@@ -4,8 +4,8 @@ $hyoo_ergo_thesis_page $mol_page
 	title @ \Thesis
 	tools /
 		<= Request_add $mol_link
-			hint @ \Add edit request
-			arg * request_new \
+			hint @ \Edit
+			arg * request_new <= thesis_id \
 			sub / <= request_add_icon $mol_icon_pencil
 		<= Close $mol_link
 			arg * thesis null

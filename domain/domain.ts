@@ -5,7 +5,7 @@ namespace $ {
 		@ $mol_mem
 		state() {
 			const obj = new $mol_state_shared
-			return obj
+			return obj.doc('v1')
 		}
 
 		@ $mol_mem_key
