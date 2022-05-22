@@ -61,5 +61,36 @@ namespace $ {
 			const ids = this.state().sub('children').list( next && next.map(obj => obj.id()) )
 			return ids.map( id => this.domain().edition().item( String(id) ) )
 		}
+
+		proposal(next?: $hyoo_ergo_proposal) {
+			const id = this.state().sub('proposal').value(next && next.id())
+			return id ? this.domain().proposal(String(id)) : null
+		}
+
+		creator(next?: $hyoo_ergo_person) {
+			const id = this.state().sub('creator').value(next && next.id())
+			if(!id) throw new Error('Creator is required')
+			return this.domain().person( String(id) )
+		}
+
+		moment(next?: $mol_time_moment) {
+			const str = this.state().sub('moment').value(next && next.toString())
+			if (!str) throw new Error('Moment is required')
+			return new $mol_time_moment( String(str) )
+		}
+
+		@ $mol_action
+		child_add(proposal: $hyoo_ergo_proposal) {
+			const child = this.domain().edition().item( $mol_guid() )
+			proposal.edition(child)
+
+			child.moment(new $mol_time_moment)
+			child.creator(this.domain().user())
+			child.proposal(proposal)
+
+			this.domain().edition().link(this, child)
+
+			return child
+		}
 	}
 }

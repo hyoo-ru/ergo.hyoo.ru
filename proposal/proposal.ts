@@ -41,6 +41,18 @@ namespace $ {
 			return new $mol_time_moment( String(str) )
 		}
 
+		thesis(next?: $hyoo_ergo_thesis) {
+			const id = this.state().sub('thesis').value(next && next.id())
+			if (!id) throw new Error('Thesis is required')
+			return this.domain().thesis().item(String(id))
+		}
+
+		edition(next?: $hyoo_ergo_edition) {
+			const id = this.state().sub('edition').value(next && next.id())
+			if (!id) throw new Error('Edition is required')
+			return this.domain().edition().item(String(id))
+		}
+
 	}
 
 }

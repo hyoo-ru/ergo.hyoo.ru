@@ -28,7 +28,14 @@ namespace $.$$ {
 		Thesis_new_page: {
 			flex: {
 				shrink: 0,
-				basis: rem(20),
+				basis: rem(30),
+			},
+		},
+
+		Thesis_edit_page: {
+			flex: {
+				shrink: 0,
+				basis: rem(25),
 			},
 		},
 

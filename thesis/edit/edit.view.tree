@@ -2,4 +2,22 @@ $hyoo_ergo_thesis_edit $mol_page
 	domain $hyoo_ergo_domain
 	proposal $hyoo_ergo_proposal
 	title @ \Thesis edit
-	body / \123
+	tools /
+		<= Close $mol_link
+			arg * thesis_edit null
+			sub / <= Close_icon $mol_icon_cross
+	body /
+		<= Form $mol_form
+			form_fields /
+				<= Title_field $mol_form_field
+					name @ \Title
+					control <= Title_string $mol_string
+						value? <=> thesis_title? \
+				<= Text_field $mol_form_field
+					name @ \Text
+					control <= Text_area $mol_textarea
+						value? <=> thesis_text? \
+			buttons /
+				<= Publish $mol_button_major
+					title @ \Publish
+					click? <=> publish? null

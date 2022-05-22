@@ -1,0 +1,15 @@
+$hyoo_ergo_proposal_close $mol_page
+	domain $hyoo_ergo_domain
+	proposal $hyoo_ergo_proposal
+	title @ \Proposal closing
+	tools /
+		<= Close_page $mol_link
+			arg * proposal_close null
+			sub / <= Close_page_icon $mol_icon_cross
+	body /
+		<= Comment $mol_textarea
+			hint @ \Closing comment
+			value? <=> comment? \
+		<= Button $mol_button_major
+			title @ \Close
+			click? <=> close? null

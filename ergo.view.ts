@@ -52,6 +52,13 @@ namespace $.$$ {
 			return this.domain().proposal( this.thesis_edit_opened()! )
 		}
 
+		proposal_close_opened() {
+			return this.$.$mol_state_arg.value('proposal_close')
+		}
+
+		proposal_close() {
+			return this.domain().proposal( this.proposal_close_opened()! )
+		}
 
 		pages() {
 
@@ -66,6 +73,7 @@ namespace $.$$ {
 				... this.proposal_new_opened() ? [this.Proposal_new_page()] : [],
 				... this.user_opened() ? [this.User_page()] : [],
 				... this.thesis_edit_opened() ? [this.Thesis_edit_page()] : [],
+				... this.proposal_close_opened() ? [this.Proposal_close_page()] : [],
 			]
 
 		}

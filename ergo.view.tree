@@ -34,3 +34,6 @@ $hyoo_ergo $mol_book2
 		<= Thesis_edit_page $hyoo_ergo_thesis_edit
 			domain <= domain
 			proposal <= proposal_thesis_edit $hyoo_ergo_proposal
+		<= Proposal_close_page $hyoo_ergo_proposal_close
+			domina <= domain
+			proposal <= proposal_close $hyoo_ergo_proposal

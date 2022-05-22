@@ -24,6 +24,7 @@ namespace $.$$ {
 			obj.status('opened')
 			obj.what(this.what())
 			obj.reason(this.reason())
+			obj.thesis(this.thesis())
 
 			this.thesis().proposals( [...this.thesis().proposals(), obj] )
 
