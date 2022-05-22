@@ -16,13 +16,19 @@ $hyoo_ergo_proposal_list $mol_page
 			arg * proposals null
 			sub / <= Close_icon $mol_icon_cross
 	body <= page_body /
+		<= Filter $mol_switch
+			value?val <=> filter?val \opened
+			options <= filters *
+				opened @ \Opened
+				completed @ \Completed
+				closed @ \Closed
 		<= Empty $mol_paragraph
 			title @ \No one created
 		<= List $mol_list
 			rows <= rows /
 	Proposal* $mol_list
 		rows /
-			<= Header* $mol_row sub /
+			<= Header* $mol_row sub <= header* /
 				<= Moment* $mol_view sub / <= proposal_moment* \
 				<= Creator* $mol_link
 					arg * user <= proposal_creator_id* \
@@ -33,4 +39,7 @@ $hyoo_ergo_proposal_list $mol_page
 				<= Cancel* $mol_link
 					arg * proposal_close <= proposal_id* \
 					sub / <= Cancel_icon* $mol_icon_close_outline
+				<= Reopen* $mol_link
+					arg * proposal_reopen <= proposal_id* \
+					sub / <= Reopen_icon* $mol_icon_refresh
 			<= Reason* $mol_row sub / <= proposal_reason* \

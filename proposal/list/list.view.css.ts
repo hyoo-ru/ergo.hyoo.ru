@@ -1,6 +1,6 @@
 namespace $.$$ {
 
-	const { rem } = $mol_style_unit
+	const { rem, px } = $mol_style_unit
 
 	$mol_style_define( $hyoo_ergo_proposal_list , {
 
@@ -32,6 +32,10 @@ namespace $.$$ {
 
 		Moment: {
 			margin: 0,
+		},
+
+		Filter: {
+			maxHeight: px(40),
 		},
 
 	} )

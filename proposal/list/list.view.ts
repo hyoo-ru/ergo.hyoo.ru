@@ -31,11 +31,24 @@ namespace $.$$ {
 		}
 
 		rows() {
-			return this.thesis().proposals().map( obj => this.Proposal(obj.id()) )
+			const filter = this.thesis().proposals().filter( obj => obj.status() === this.filter() )
+			return filter.map( obj => this.Proposal(obj.id()) )
 		}
 
 		page_body() {
-			return this.thesis().proposals().length > 0 ? [this.List()] : [this.Empty()]
+			if (this.rows().length === 0) return [this.Filter(), this.Empty()]
+			return [this.Filter(), this.List()]
+		}
+
+		header(id: string) {
+			const proposal = this.proposal(id)
+
+			return [
+				this.Moment(id),
+				this.Creator(id),
+				... proposal.status() === 'opened' ? [this.Accept(id), this.Cancel(id)] : [],
+				... proposal.status() === 'closed' ? [this.Reopen(id)] : [],
+			]
 		}
 
 	}
