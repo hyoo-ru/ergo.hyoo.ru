@@ -4,38 +4,24 @@ namespace $.$$ {
 
 	$mol_style_define( $hyoo_ergo_proposal_list , {
 
-		Header: {
+		Filter: {
+			maxHeight: px(40),
+		},
+
+		Proposal_info: {
 			alignItems: 'center',
-			justifyContent: 'flex-end',
 			padding: {
 				bottom: 0,
 			},
 		},
 
-		Reason: {
-			padding: {
-				top: 0,
-			},
+		Proposal_comment: {
+			color: $mol_theme.text,
 		},
 
-		Creator: {
+		Proposal_creator: {
+			color: $mol_theme.special,
 			margin: 0,
-		},
-
-		Accept: {
-			margin: 0,
-		},
-
-		Close: {
-			margin: 0,
-		},
-
-		Moment: {
-			margin: 0,
-		},
-
-		Filter: {
-			maxHeight: px(40),
 		},
 
 	} )

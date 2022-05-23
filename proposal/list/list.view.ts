@@ -26,8 +26,8 @@ namespace $.$$ {
 			return '@' + this.proposal(id).creator().name()
 		}
 
-		proposal_reason(id: string) {
-			return `${this.proposal(id).what()}: ${this.proposal(id).reason()}`
+		proposal_comment(id: string) {
+			return this.proposal(id).comments().slice(-1)[0].message()
 		}
 
 		rows() {
@@ -38,17 +38,6 @@ namespace $.$$ {
 		page_body() {
 			if (this.rows().length === 0) return [this.Filter(), this.Empty()]
 			return [this.Filter(), this.List()]
-		}
-
-		header(id: string) {
-			const proposal = this.proposal(id)
-
-			return [
-				this.Moment(id),
-				this.Creator(id),
-				... proposal.status() === 'opened' ? [this.Accept(id), this.Cancel(id)] : [],
-				... proposal.status() === 'closed' ? [this.Reopen(id)] : [],
-			]
 		}
 
 	}

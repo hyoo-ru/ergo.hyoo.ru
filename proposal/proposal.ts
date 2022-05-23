@@ -2,6 +2,8 @@ namespace $ {
 
 	export type $hyoo_ergo_proposal_status = 'opened' | 'completed' | 'closed'
 
+	export type $hyoo_ergo_proposal_type = 'none' | 'text' | 'split' | 'merge' | 'delete' | 'sub'
+
 	export class $hyoo_ergo_proposal extends $mol_object2 {
 
 		id(): string {
@@ -21,12 +23,22 @@ namespace $ {
 			return (str as typeof next)!
 		}
 
-		what(next?: string) {
-			return this.state().sub('what').text(next)
+		type(next?: $hyoo_ergo_proposal_type) {
+			const res = this.state().sub('type').value(next)
+			return (res as $hyoo_ergo_proposal_type)!
 		}
 
-		reason(next?: string) {
-			return this.state().sub('reason').text(next)
+		comments(next?: $hyoo_ergo_comment[]) {
+			const ids = this.state().sub('comments').list(next && next.map( obj => obj.id() )) 
+			return ids.map( id => this.domain().comment( String(id) ) )
+		}
+
+		changed_text(next?: string) {
+			return this.state().sub('changed_text').text(next)
+		}
+
+		changed_title(next?: string) {
+			return this.state().sub('changed_title').text(next)
 		}
 
 		creator(next?: $hyoo_ergo_person) {

@@ -48,16 +48,12 @@ namespace $.$$ {
 			return this.$.$mol_state_arg.value('thesis_edit')
 		}
 
-		proposal_thesis_edit() {
-			return this.domain().proposal( this.thesis_edit_opened()! )
+		proposal_opened() {
+			return this.$.$mol_state_arg.value('proposal')
 		}
 
-		proposal_close_opened() {
-			return this.$.$mol_state_arg.value('proposal_close')
-		}
-
-		proposal_close() {
-			return this.domain().proposal( this.proposal_close_opened()! )
+		proposal() {
+			return this.domain().proposal( this.proposal_opened()! )
 		}
 
 		pages() {
@@ -72,8 +68,7 @@ namespace $.$$ {
 				... this.proposal_list_opened() ? [this.Proposal_list_page()] : [],
 				... this.proposal_new_opened() ? [this.Proposal_new_page()] : [],
 				... this.user_opened() ? [this.User_page()] : [],
-				... this.thesis_edit_opened() ? [this.Thesis_edit_page()] : [],
-				... this.proposal_close_opened() ? [this.Proposal_close_page()] : [],
+				... this.proposal_opened() ? [this.Proposal_page()] : [],
 			]
 
 		}

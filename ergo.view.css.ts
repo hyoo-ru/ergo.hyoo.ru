@@ -32,13 +32,6 @@ namespace $.$$ {
 			},
 		},
 
-		Thesis_edit_page: {
-			flex: {
-				shrink: 0,
-				basis: rem(25),
-			},
-		},
-
 		Proposal_list_page: {
 			flex: {
 				shrink: 0,
@@ -49,9 +42,16 @@ namespace $.$$ {
 		Proposal_new_page: {
 			flex: {
 				shrink: 0,
-				basis: rem(20),
+				basis: rem(30),
 			},
 		},
+
+		Proposal_page: {
+			flex: {
+				shrink: 0,
+				basis: rem(30),
+			}
+		}
 
 	} )
 

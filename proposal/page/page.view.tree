@@ -1,27 +1,17 @@
-$hyoo_ergo_proposal_new $mol_page
+$hyoo_ergo_proposal_page $mol_page
 	domain $hyoo_ergo_domain
-	thesis $hyoo_ergo_thesis
-	title @ \New Proposal
+	proposal $hyoo_ergo_proposal
+	title @ \Proposal
 	tools /
-		<= Thesis $mol_link
-			hint @ \Open Thesis
-			arg * thesis <= thesis_id \
-			sub / <= Thesis_icon $mol_icon_note
-		<= Close $mol_link
-			hint @ \Close page
-			arg * proposal_new null
-			sub / <= Close_icon $mol_icon_cross
-	message *
-		required @ \Required
+		<= Close_page $mol_link
+			arg * proposal null
+			sub / <= Close_page_icon $mol_icon_cross
 	body /
 		<= Form $mol_form
 			form_fields <= form_fields /
-				<= Comment_field $mol_form_field
-					name @ \Comment
-					bid <= comment_bid \
-					control <= Reason_text $mol_textarea
-						hint @ \Type here
-						value? <=> comment? \
+				<= Comment_field $mol_labeler
+					title @ \Comment
+					content / <= comment \
 				<= Changes_field $mol_form_field
 					name @ \Changes
 					control <= Changes_switch $mol_switch
@@ -39,6 +29,9 @@ $hyoo_ergo_proposal_new $mol_page
 					control <= Title_text $mol_textarea
 						hint @ \Updated title
 						value? <=> next_title? \
+				<= Title_labeler $mol_labeler
+					title @ \Title
+					content / <= next_title
 				<= Text_field $mol_form_field
 					name @ \Text
 					bid <= text_bid \
@@ -46,8 +39,9 @@ $hyoo_ergo_proposal_new $mol_page
 						hint @ \Text updated
 						value? <=> next_text? \
 			buttons /
-				<= Publish $mol_button_major
-					title @ \Publish proposal
-					enabled <= publish_enabled true
-					click? <=> publish? null
-
+				<= Approve $mol_button_major
+					title @ \Approve
+					click? <=> approve? null
+				<= Decline $mol_button_minor
+					title @ \Decline
+					click? <=> decline? null
