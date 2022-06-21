@@ -23,7 +23,7 @@ namespace $ {
 			thesis.creator(this.domain().user())
 			thesis.edition(edition)
 
-			this.domain().index().update('', `${title} ${text}`, thesis.id())
+			this.domain().index().update(['', `${title} ${text}`, thesis.id()])
 
 			return thesis
 		}
